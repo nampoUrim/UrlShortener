@@ -1,0 +1,33 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f6f8">
+
+    <title>404 - Link Not Found | UrlShortener</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'shortener/css/style.css' %}"
+    >
+</head>
+<body class="error-page">
+    <main class="not-found-card">
+        <p class="error-code">404</p>
+
+        <h1>Link not found</h1>
+
+        <p class="error-description">
+            Sorry, we couldn't find the short link you requested.
+            It may be invalid or no longer available.
+        </p>
+
+        <a class="home-link" href="/">
+            Return to homepage
+        </a>
+    </main>
+</body>
+</html>

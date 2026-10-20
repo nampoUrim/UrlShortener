@@ -27,7 +27,7 @@ if not SECRET_KEY:
         "DJANGO_SECRET_KEY is missing from the .env file."
     )
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     host.strip()
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shortener',
 ]
 
 MIDDLEWARE = [

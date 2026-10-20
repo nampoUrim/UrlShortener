@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrlShortener</title>
+    <link rel="stylesheet" href="{% static 'shortener/css/style.css' %}">
+</head>
+<body>
+    <h1>UrlShortener</h1>
+
+    <p>Enter a URL to create a short link.</p>
+    
+    {% if errors %}
+        <div class="error-messages" role="alert">
+            <p>Please correct the following errors:</p>
+
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="original_url">Original URL</label>
+        <input
+            type="url"
+            id="original_url"
+            name="original_url"
+            placeholder="https://example.com"
+            required
+        >
+
+        <button type="submit">Shorten URL</button>
+    </form>
+
+    
+{% if short_url %}
+    <section aria-labelledby="result-heading">
+        <h2 id="result-heading">Your short link</h2>
+
+        <p>
+            <a id="short-link" href="{{ short_url.get_short_path }}">
+                {{ request.scheme }}://{{ request.get_host }}{{ short_url.get_short_path }}
+            </a>
+        </p>
+
+        <button type="button" id="copy-button">Copy link</button>
+
+        <p id="copy-message" role="status" aria-live="polite"></p>
+    </section>
+{% endif %}
+<script src="{% static 'shortener/js/copy-link.js' %}" defer></script>
+</body>
+</html>

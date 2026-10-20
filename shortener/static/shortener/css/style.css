@@ -1,0 +1,308 @@
+
+/* ------------------------------
+   1. Global styles
+------------------------------ */
+
+:root {
+    color-scheme: light;
+    --color-background: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #202938;
+    --color-muted: #687386;
+    --color-primary: #3157a4;
+    --color-primary-hover: #254681;
+    --color-border: #dce2ea;
+    --color-error: #b42332;
+    --color-success: #217747;
+    --shadow-card: 0 8px 28px rgb(25 40 65 / 7%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 64px 20px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ------------------------------
+   2. Main content
+------------------------------ */
+
+body > h1,
+body > p,
+body > form,
+body > .error-messages,
+body > section {
+    width: 100%;
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body > h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+body > p {
+    margin-top: 0;
+    margin-bottom: 28px;
+    color: var(--color-muted);
+    text-align: center;
+}
+
+/* ------------------------------
+   3. URL form
+------------------------------ */
+
+form {
+    padding: 28px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+input[type="url"] {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--color-text);
+    font: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="url"]::placeholder {
+    color: #9aa3b2;
+}
+
+input[type="url"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(49 87 164 / 14%);
+}
+
+/* ------------------------------
+   4. Buttons
+------------------------------ */
+
+button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+button:hover {
+    background: var(--color-primary-hover);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #91b5ff;
+    outline-offset: 3px;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* ------------------------------
+   5. Short URL result
+------------------------------ */
+
+section[aria-labelledby="result-heading"] {
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+}
+
+section p {
+    overflow-wrap: anywhere;
+}
+
+#short-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#short-link:hover {
+    text-decoration: underline;
+}
+
+#copy-button {
+    margin-top: 4px;
+}
+
+#copy-message {
+    margin-bottom: 0;
+    color: var(--color-success);
+    font-size: 0.9rem;
+}
+
+/* ------------------------------
+   6. Validation errors
+------------------------------ */
+
+.error-messages {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 16px 20px;
+    border: 1px solid #f0c5ca;
+    border-radius: 10px;
+    background: #fff0f1;
+    color: var(--color-error);
+}
+
+.error-messages p {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.error-messages ul {
+    margin-bottom: 0;
+    padding-left: 22px;
+}
+
+/* ------------------------------
+   7. Responsive layout
+------------------------------ */
+
+@media (max-width: 600px) {
+    body {
+        padding: 36px 16px;
+    }
+
+    body > h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    section[aria-labelledby="result-heading"] {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+/* ------------------------------
+   8. 404 error page
+------------------------------ */
+
+body.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 40px 32px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+}
+
+.not-found-card .error-code {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: clamp(3.5rem, 12vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -3px;
+}
+
+.not-found-card h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.3;
+}
+
+.not-found-card .error-description {
+    margin: 0 0 24px;
+    color: var(--color-muted);
+}
+
+.home-link {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.home-link:hover {
+    background: var(--color-primary-hover);
+}
+
+@media (max-width: 600px) {
+    .not-found-card {
+        padding: 32px 20px;
+    }
+
+    .home-link {
+        display: block;
+        width: 100%;
+    }
+}
