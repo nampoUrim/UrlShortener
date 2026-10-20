@@ -85,6 +85,7 @@ If the code does not exist, Django raises an HTTP 404 error.
 
 ## Project Structure
 
+```text
 UrlShortener/
 ├── config/
 │   ├── __init__.py
@@ -118,7 +119,7 @@ UrlShortener/
 ├── manage.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ### Main components
 
@@ -151,26 +152,36 @@ The application uses SQLite, which is supported by Python and does not require a
 
 ### 1. Clone the repository
 
+```bash
 git clone https://github.com/nampoUrim/UrlShortener.git
 cd UrlShortener
+```
 
 ### 2. Create a virtual environment
 
 On Windows:
 
+```powershell
 python -m venv urlshortenervenv
+```
 
 Activate it in PowerShell:
 
+```powershell
 .\urlshortenervenv\Scripts\Activate.ps1
+```
 
 Or in Windows Command Prompt:
 
+```cmd
 urlshortenervenv\Scripts\activate.bat
+```
 
 ### 3. Install dependencies
 
+```bash
 python -m pip install -r requirements.txt
+```
 
 ### 4. Configure environment variables
 
@@ -178,10 +189,11 @@ Create a `.env` file in the project root, alongside `manage.py`.
 
 Add the following configuration:
 
+```dotenv
 DJANGO_SECRET_KEY=replace-with-a-secure-random-secret-key
 DJANGO_DEBUG=True
 DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
-
+```
 
 Replace the example secret with a securely generated value. Never use the example placeholder as a production secret.
 
@@ -189,24 +201,25 @@ The `.env` file is excluded from version control. Do not upload it to GitHub or 
 
 ### 5. Apply database migrations
 
-
+```bash
 python manage.py migrate
-
+```
 
 This creates the database tables required by Django and the application.
 
 ### 6. Create an administrator account
 
-
+```bash
 python manage.py createsuperuser
-
+```
 
 Follow the prompts to create the account.
 
 ### 7. Start the development server
 
+```bash
 python manage.py runserver
-
+```
 
 Open the following address in your browser:
 
@@ -276,36 +289,45 @@ Run these commands from the project root with the virtual environment activated.
 
 Check the project configuration:
 
+```bash
 python manage.py check
-
+```
 
 Create migrations after model changes:
 
+```bash
 python manage.py makemigrations
-
+```
 
 Apply migrations:
 
+```bash
 python manage.py migrate
+```
 
 Check whether migrations are missing:
 
+```bash
 python manage.py makemigrations --check --dry-run
+```
 
 Run the automated test suite:
 
+```bash
 python manage.py test
-
+```
 
 Start the development server:
 
+```bash
 python manage.py runserver
-
+```
 
 Check the current Git status:
 
+```bash
 git status
-
+```
 
 ## Security Notes
 
