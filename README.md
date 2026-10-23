@@ -8,7 +8,6 @@ A simple URL shortening web application built with Django. It allows users to co
 - [Features](#features)
 - [How It Works](#how-it-works)
 - [Technologies](#technologies)
-- [Project Structure](#project-structure)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -83,43 +82,7 @@ If the code does not exist, Django raises an HTTP 404 error.
 | Git | Version control |
 | GitHub | Remote repository hosting |
 
-## Project Structure
 
-```text
-UrlShortener/
-├── config/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── shortener/
-│   ├── migrations/
-│   │   ├── __init__.py
-│   │   └── ...
-│   ├── static/
-│   │   └── shortener/
-│   │       ├── css/
-│   │       │   └── style.css
-│   │       └── js/
-│   │           └── copy-link.js
-│   ├── templates/
-│   │   ├── 404.html
-│   │   └── shortener/
-│   │       └── home.html
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── .env
-├── .gitignore
-├── manage.py
-├── requirements.txt
-└── README.md
-```
 
 ### Main components
 
